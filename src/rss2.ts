@@ -216,7 +216,7 @@ export default (ins: Feed) => {
  */
 const formatEnclosure = (enclosure: string | Enclosure, mimeCategory = "image") => {
   if (mimeCategory === "svgdataurl") {
-    return { _attributes: {url: enclosure, length: 0, type: "img/svg+xml" } };
+    return { _attributes: {url: enclosure, length: 0, type: "image/svg+xml" } };
   }
   if (typeof enclosure === "string") {
     const type = new URL(enclosure).pathname.split(".").slice(-1)[0];

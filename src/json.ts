@@ -63,7 +63,9 @@ export default (ins: Feed) => {
     if (item.image) {
       feedItem.image = item.image;
     }
-
+    if (item.svgDataUrl) {
+      feedItem.image = item.svgDataUrl;
+    }
     if (item.date) {
       feedItem.date_modified = item.date.toISOString();
     }
