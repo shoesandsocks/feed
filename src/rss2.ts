@@ -184,7 +184,9 @@ export default (ins: Feed) => {
     if (entry.image) {
       item.enclosure = formatEnclosure(entry.image, "image");
     }
-
+    if (entry.svgDataUrl) {
+      item.enclosure = formatEnclosure(entry.dataImage, "svgdataurl");
+    }
     if (entry.audio) {
       item.enclosure = formatEnclosure(entry.audio, "audio");
     }
@@ -213,6 +215,9 @@ export default (ins: Feed) => {
  * @param mimeCategory
  */
 const formatEnclosure = (enclosure: string | Enclosure, mimeCategory = "image") => {
+  if (mimeCategory === "svgdataurl") {
+    return { _attributes: {url: enclosure, length: 0, type: "img/svg+xml" } };
+  }
   if (typeof enclosure === "string") {
     const type = new URL(enclosure).pathname.split(".").slice(-1)[0];
     return { _attributes: { url: enclosure, length: 0, type: `${mimeCategory}/${type}` } };
