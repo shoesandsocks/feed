@@ -185,7 +185,7 @@ export default (ins: Feed) => {
       item.enclosure = formatEnclosure(entry.image, "image");
     }
     if (entry.svgDataUrl) {
-      item.enclosure = formatEnclosure(entry.dataImage, "svgdataurl");
+      item.enclosure = formatEnclosure(entry.svgDataUrl, "svgdataurl");
     }
     if (entry.audio) {
       item.enclosure = formatEnclosure(entry.audio, "audio");
