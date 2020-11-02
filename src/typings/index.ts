@@ -10,6 +10,7 @@ export interface Item {
 
   guid?: string;
 
+  svgDataUrl?: string | Enclosure;
   image?: string | Enclosure;
   audio?: string | Enclosure;
   video?: string | Enclosure;
